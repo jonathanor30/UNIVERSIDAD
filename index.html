@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería - Sistema Completo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Vista Home -->
+        <div id="home-view" class="view active">
+            <div class="hero-section">
+                <nav class="navbar">
+                    <div class="container nav-container">
+                        <div class="nav-brand">
+                            <h2>☕ Cafetería Premium</h2>
+                        </div>
+                        <div class="nav-links">
+                            <button class="btn btn-secondary" onclick="navigateToView('login')">Iniciar Sesión</button>
+                            <button class="btn btn-primary" onclick="navigateToView('register')">Registrarse</button>
+                        </div>
+                    </div>
+                </nav>
+                
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-text">
+                            <h1>Bienvenido a nuestra Cafetería</h1>
+                            <p>Descubre los mejores sabores artesanales en un ambiente acogedor. Productos frescos y de calidad premium.</p>
+                            <div class="hero-buttons">
+                                <button class="btn btn-primary btn-large" onclick="navigateToView('products')">Ver Catálogo</button>
+                                <button class="btn btn-secondary btn-large" onclick="navigateToView('login')">Iniciar Sesión</button>
+                            </div>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <h3>50+</h3>
+                                <p>Productos Disponibles</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100%</h3>
+                                <p>Productos Artesanales</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>5★</h3>
+                                <p>Calificación Promedio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Login -->
+        <div id="login-view" class="view">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Iniciar Sesión</h2>
+                        <p>Ingresa a tu cuenta para continuar</p>
+                    </div>
+                    
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Contraseña</label>
+                            <input type="password" id="login-password" name="password" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Iniciar Sesión</button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>¿No tienes cuenta? <button class="link-button" onclick="navigateToView('register')">Regístrate aquí</button></p>
+                        <button class="link-button" onclick="navigateToView('home')">← Volver al inicio</button>
+                    </div>
+                    
+                    <div class="demo-credentials">
+                        <p><strong>Demo:</strong></p>
+                        <p>Admin: admin@cafeteria.com / admin123</p>
+                        <p>Cliente: cualquier email / cualquier contraseña</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Register -->
+        <div id="register-view" class="view">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Crear Cuenta</h2>
+                        <p>Únete a nuestra comunidad</p>
+                    </div>
+                    
+                    <form id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="register-name">Nombre Completo</label>
+                            <input type="text" id="register-name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password">Contraseña</label>
+                            <input type="password" id="register-password" name="password" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Crear Cuenta</button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>¿Ya tienes cuenta? <button class="link-button" onclick="navigateToView('login')">Inicia sesión aquí</button></p>
+                        <button class="link-button" onclick="navigateToView('home')">← Volver al inicio</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Products Catalog -->
+        <div id="products-view" class="view">
+            <nav class="navbar navbar-logged">
+                <div class="container nav-container">
+                    <div class="nav-brand">
+                        <h2>☕ Cafetería Premium</h2>
+                    </div>
+                    <div class="nav-user">
+                        <span id="user-name">Usuario</span>
+                        <button class="btn btn-secondary btn-small" onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="catalog-container">
+                <div class="container">
+                    <div class="catalog-header">
+                        <h1>Nuestros Productos</h1>
+                        <p>Explora nuestra selección de productos artesanales</p>
+                    </div>
+
+                    <div class="filters-section">
+                        <div class="search-bar">
+                            <input type="text" id="search-input" placeholder="Buscar productos...">
+                        </div>
+                        
+                        <div class="category-filters">
+                            <button class="filter-btn active" data-category="todos">Todos</button>
+                            <button class="filter-btn" data-category="bebidas">Bebidas</button>
+                            <button class="filter-btn" data-category="comidas">Comidas</button>
+                            <button class="filter-btn" data-category="postres">Postres</button>
+                            <button class="filter-btn" data-category="snacks">Snacks</button>
+                        </div>
+                    </div>
+
+                    <div id="products-grid" class="products-grid">
+                        <!-- Products will be rendered here -->
+                    </div>
+
+                    <div id="cart-summary" class="cart-summary">
+                        <h3>Carrito de Compras</h3>
+                        <div id="cart-items"></div>
+                        <div id="cart-total" class="cart-total">Total: $0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Product Detail -->
+        <div id="product-detail-view" class="view">
+            <nav class="navbar navbar-logged">
+                <div class="container nav-container">
+                    <div class="nav-brand">
+                        <h2>☕ Cafetería Premium</h2>
+                    </div>
+                    <div class="nav-user">
+                        <span id="detail-user-name">Usuario</span>
+                        <button class="btn btn-secondary btn-small" onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="product-detail-container">
+                <div class="container">
+                    <button class="btn btn-secondary" onclick="navigateToView('products')">← Volver al catálogo</button>
+                    
+                    <div id="product-detail-content" class="product-detail-content">
+                        <!-- Product detail will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Admin -->
+        <div id="admin-view" class="view">
+            <nav class="navbar navbar-logged">
+                <div class="container nav-container">
+                    <div class="nav-brand">
+                        <h2>☕ Panel de Administración</h2>
+                    </div>
+                    <div class="nav-user">
+                        <span id="admin-user-name">Administrador</span>
+                        <button class="btn btn-secondary btn-small" onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="admin-container">
+                <div class="container">
+                    <div class="admin-header">
+                        <h1>Gestión de Productos</h1>
+                        <button class="btn btn-primary" onclick="showAddProductForm()">+ Agregar Producto</button>
+                    </div>
+
+                    <div id="admin-product-form" class="product-form-container" style="display: none;">
+                        <div class="form-card">
+                            <h3 id="form-title">Agregar Producto</h3>
+                            <form id="product-form">
+                                <input type="hidden" id="product-id">
+                                
+                                <div class="form-group">
+                                    <label for="product-name">Nombre</label>
+                                    <input type="text" id="product-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="product-category">Categoría</label>
+                                    <select id="product-category" required>
+                                        <option value="">Seleccionar categoría</option>
+                                        <option value="bebidas">Bebidas</option>
+                                        <option value="comidas">Comidas</option>
+                                        <option value="postres">Postres</option>
+                                        <option value="snacks">Snacks</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="product-price">Precio</label>
+                                    <input type="number" id="product-price" step="0.01" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="product-description">Descripción</label>
+                                    <textarea id="product-description" rows="3" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="product-image">URL de Imagen</label>
+                                    <input type="url" id="product-image">
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary" onclick="hideProductForm()">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="admin-products-list" class="admin-products-list">
+                        <!-- Admin products list will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
