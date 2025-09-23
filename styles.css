@@ -870,3 +870,201 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transform: translateY(0);
     }
 }
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.dashboard-stats2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .dashboard-stats2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .dashboard-stats2 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* Tarjetas */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+}
+
+.card-header .icon-info,
+.card-header .icon-trending {
+    width: 20px;
+    height: 20px;
+    color: #888;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.stat-text {
+    font-size: 12px;
+    color: #888;
+}
+
+.status-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.status-circle.available {
+    background-color: #28a745;
+}
+
+.status-circle.unavailable {
+    background-color: #dc3545;
+}
+
+.category-grid {
+    display: flex;
+    justify-content: flex-end; /* Alinea los items a la derecha */
+    gap: 20px; /* Espaciado entre los items */
+}
+
+.category-item {
+    background-color: #f1f1f1;
+    padding: 10px 20px; /* Ajusté el padding para que se vea mejor */
+    border-radius: 8px;
+    text-align: center;
+    width: 150px; /* Definir un ancho fijo para los items */
+}
+
+.category-count {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.category-name {
+    font-size: 14px;
+    color: #555;
+}
+
+.card2 {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+ 
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 1865px;        /* ancho fijo que tú defines */
+    /* o podría ser un porcentaje o ancho relativo */
+    /* width: 80%; */
+    /* width: 80vw; */
+    /* min-width: 200px; max-width: 400px; */
+}
+
+
+.card-header2 {
+    
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+}
+
+.card-header2,
+.card-header2  {
+    width: 200px;
+    height: 50px;
+    color: #888;
+}
+
+
+
+.category-grid2 {
+    display: flex;
+    justify-content: space-between; /* Distribuye los items con el mayor espacio posible entre ellos */
+    align-items: center; /* Asegura que todos los items estén alineados verticalmente */
+    gap: 20px; /* Espaciado entre los items */
+    flex-wrap: wrap; /* Permite que los items se ajusten al tamaño de la pantalla si no caben */
+}
+
+.category-item2 {
+    background-color: #f1f1f1;
+    padding: 10px 20px; /* Espaciado interno de cada item */
+    border-radius: 8px;
+    text-align: center;
+    flex-grow: 1; /* Hace que los items ocupen el espacio disponible */
+    min-width: 250px; /* Define un ancho mínimo para cada item */
+    max-width: 800px; /* Define un ancho máximo para que no se expandan demasiado */
+}
+
+.category-count2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.category-name2 {
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+.actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.card-description {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
