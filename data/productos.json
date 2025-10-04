@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nombre": "Café Americano", "precio": 3000, "categoria": "Bebidas" },
+  { "id": 2, "nombre": "Capuccino", "precio": 4000, "categoria": "Bebidas" },
+  { "id": 3, "nombre": "Croissant", "precio": 2500, "categoria": "Comida" }
+]
