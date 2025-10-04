@@ -1,0 +1,27 @@
+{
+  "name": "cafeteria-backend",
+  "version": "1.0.0",
+  "description": "Backend para la cafeteria con archivos JSON",
+  "main": "server.js",
+  "type": "commonjs",
+
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "fs-extra": "^11.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanor30/UNIVERSIDAD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanor30/UNIVERSIDAD/issues"
+  },
+  "homepage": "https://github.com/jonathanor30/UNIVERSIDAD#readme"
+}
