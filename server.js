@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
@@ -75,12 +76,20 @@ createCrudRoutes('productos', 'productos.json');
 createCrudRoutes('usuarios', 'usuarios.json');
 createCrudRoutes('pedidos', 'pedidos.json');
 
-// Ruta raíz para Render
-app.get('/', (req, res) => {
-  res.send('Servidor de la cafetería funcionando 🚀');
+// ===============================
+// SERVIR FRONTEND (opcional)
+// Si luego agregas React u HTML en una carpeta "frontend/build"
+const frontendPath = path.join(__dirname, 'frontend', 'build');
+app.use(express.static(frontendPath));
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) return res.status(404).json({ error: 'No encontrado' });
+  res.sendFile(path.join(frontendPath, 'index.html'));
 });
+// ===============================
 
+// Ruta de salud para Render
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
+// Servidor
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
